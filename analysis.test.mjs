@@ -10,7 +10,7 @@ const c=chartData(d,'2026-01-01','2026-01-04');assert.equal(c.length,4);assert.e
 assert.equal(chartData(d,'2026-01-01','2026-01-04',true)[3].value,null);
 assert.equal(eventStats(d,{start:'2026-01-02',end:'2026-01-03'}).delta,null);
 const fs=await import('node:fs');
-const html=fs.readFileSync(new URL('./dashboard.html',import.meta.url),'utf8');
+const html=fs.readFileSync(new URL('./docs/index.html',import.meta.url),'utf8');
 const helper=fs.readFileSync(new URL('./analysis.mjs',import.meta.url),'utf8');
 assert.ok(html.includes(helper.replaceAll('export ','')),'inline calculation code matches tested module');
 const dataset=JSON.parse(html.match(/const data=(.*);\n/)[1]);
